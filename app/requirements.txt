@@ -1,0 +1,6 @@
+Flask==1.1.1
+requests==2.14.2
+psutil==5.4.0
+aws-xray-sdk==2.4.2
+flask-restful==0.3.7
+boto3==1.9.189

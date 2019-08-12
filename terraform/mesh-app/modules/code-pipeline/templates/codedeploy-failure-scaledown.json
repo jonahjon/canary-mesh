@@ -1,0 +1,20 @@
+{
+    "source": [
+      "aws.codedeploy"
+    ],
+    "detail-type": [
+      "CodeDeploy Deployment State-change Notification"
+    ],
+    "detail": {
+      "state": [
+        "FAILURE",
+        "STOP"
+      ],
+      "application": [
+        "${code_deploy_app_name}"
+      ],
+      "deploymentGroup": [
+        "${code_deploy_deployment_group_name}"
+      ]
+    }
+}
