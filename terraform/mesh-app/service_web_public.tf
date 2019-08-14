@@ -7,7 +7,7 @@ module "mesh" {
   virtual_node_name   = local.service_name
 
   # ServiceDiscovery
-  service_namespace = "example-mesh"
+  service_namespace = "service"
 
   # ECS Service Settings
   cluster_arn                   = module.ecs_cluster.cluster_id

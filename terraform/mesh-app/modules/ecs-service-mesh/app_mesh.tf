@@ -25,7 +25,7 @@ resource "aws_service_discovery_service" "discovery_service" {
 }
 
 resource "aws_appmesh_virtual_node" "blue" {
-  name      = var.virtual_node_name
+  name      = "blue"
   mesh_name = aws_appmesh_mesh.mesh.id
 
   spec {
@@ -62,7 +62,7 @@ resource "aws_appmesh_virtual_node" "blue" {
 }
 
 resource "aws_appmesh_virtual_node" "green" {
-  name      = var.virtual_node_name
+  name      = "green"
   mesh_name = aws_appmesh_mesh.mesh.id
 
   spec {
@@ -114,7 +114,7 @@ resource "aws_appmesh_virtual_router" "virtual_router" {
 }
 
 resource "aws_appmesh_route" "blue" {
-  name                = "serviceB-route"
+  name                = "service-route-blue"
   mesh_name           = "${aws_appmesh_mesh.mesh.id}"
   virtual_router_name = "${aws_appmesh_virtual_router.virtual_router.name}"
 
@@ -135,7 +135,7 @@ resource "aws_appmesh_route" "blue" {
 }
 
 resource "aws_appmesh_route" "green" {
-  name                = "serviceB-route"
+  name                = "service-route-green"
   mesh_name           = "${aws_appmesh_mesh.mesh.id}"
   virtual_router_name = "${aws_appmesh_virtual_router.virtual_router.name}"
 
@@ -148,7 +148,7 @@ resource "aws_appmesh_route" "green" {
       action {
         weighted_target {
           virtual_node = "${aws_appmesh_virtual_node.green.name}"
-          weight       = 0
+          weight       = 100
         }
       }
     }

@@ -13,5 +13,14 @@ j2 task_def.json.j2 > task_def.json --undefined
 aws s3 cp task_def.json s3://$artifact_bucket_name/task_def.json
 aws s3 cp appspec.yml s3://$artifact_bucket_name/appspec.yml
 
-rm -rf appspec.yml
-rm -rf task_def.json
+# Let's get the replicas ready for the canary when needed
+export virtual_node_name='blue'
+j2 task_def.json.j2 > task_def_blue.json --undefined
+aws s3 cp task_def.json s3://$artifact_bucket_name/task_def_blue.json
+
+export virtual_node_name='green'
+j2 task_def.json.j2 > task_def_green.json --undefined
+aws s3 cp task_def.json s3://$artifact_bucket_name/task_def_green.json
+
+rm -rf appspec*.yml
+rm -rf task_def*.json

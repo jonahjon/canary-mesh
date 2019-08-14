@@ -10,7 +10,7 @@ LOGGER = logging.getLogger(__name__)
 
 class MainCommon:
     """
-    Collection of helper functions to support the WAIR main app.
+    Collection of helper functions to support the Basic ECS main app.
     """
 
     def __init__(self, app_name):

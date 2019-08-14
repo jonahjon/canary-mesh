@@ -8,7 +8,7 @@ data "template_file" "task_definition" {
     account_id           = var.account_id
     image                = var.image
     meshName             = aws_appmesh_mesh.mesh.id
-    virtualNodeName      = aws_appmesh_virtual_node.service.name
+    virtualNodeName      = aws_appmesh_virtual_node.blue.name
     envoy_log_level      = var.envoy_log_level
 
   }
@@ -18,7 +18,7 @@ resource "aws_ecs_task_definition" "initial_task_definition" {
   depends_on            = [aws_cloudwatch_log_group.service]
   family                = var.service_name
   container_definitions = data.template_file.task_definition.rendered
-  task_role_arn         = "arn:aws:iam::164382793440:role/ecs_admin"
+  task_role_arn         = aws_iam_role.task_role.id
   network_mode          = "awsvpc"
   proxy_configuration {
     type           = "APPMESH"

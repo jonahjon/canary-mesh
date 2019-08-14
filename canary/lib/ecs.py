@@ -57,3 +57,19 @@ class ECS(object):
         except Exception as e:
             self.logger.exception(self.error_message(method, e))
             raise
+
+    def describe_task_definition(self, Cluster, TaskDefinitioArn):
+        method = inspect.stack()[0][3]
+        self.logger.info('Executing function {}'.format(method))
+        try:
+            response = self.ecs_client.describe_services(
+                cluster=cluster,
+                services=[
+                    service
+                ]
+            )
+            return response
+        except Exception as e:
+            self.logger.exception(self.error_message(method, e))
+            raise
+

@@ -15,6 +15,7 @@ terraform apply plan
 
 # Delete any emphemral items created related to this deployment including the state bucket
 rm -rf .terraform/
-rm -rf tf.env
+rm -rf ../../tf.env
+rm -rf terraform.tf && cp terraform.tf.old terraform.tf
 aws s3 rb s3://${AWS_STATE_BUCKET} --force  
 

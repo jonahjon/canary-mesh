@@ -49,5 +49,5 @@ output "mesh_name" {
 }
 
 output "virtual_node_name" {
-  value = aws_appmesh_virtual_node.service.name
+  value = aws_appmesh_virtual_node.blue.name
 }

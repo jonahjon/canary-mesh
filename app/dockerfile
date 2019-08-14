@@ -7,5 +7,4 @@ ENV APP_NAME=$APP_NAME
 COPY ./app /app
 WORKDIR /app
 RUN chmod +x ./app1.sh
-ENTRYPOINT ["/bin/bash", "-c"]
-CMD ["./app1.sh"]
+ENTRYPOINT [ "python3", "main.py"]

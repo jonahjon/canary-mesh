@@ -1,0 +1,18 @@
+{
+    "Comment": "A State Machine to Handle Canary Deployments for ECS",
+    "StartAt": "GetRouteInfo",
+    "States": {
+        "GetRouteInfo": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-east-1:123456789012:function:GetRouteInfo",
+        "End": true
+        }
+    }
+}     
+
+
+
+{
+    "who" : "AWS Step Functions",
+    "notes": "Choice with default as failure"
+}

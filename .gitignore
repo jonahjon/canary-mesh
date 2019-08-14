@@ -8,6 +8,8 @@ tf.env
 sam.sh
 *.tf.old
 .env.old
+.DS_Store
+.terraform/*
 
 # Distribution / packaging
 .Python

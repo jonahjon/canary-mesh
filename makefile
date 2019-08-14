@@ -31,7 +31,6 @@ watch: check
 	chmod +x shell/watch.sh && ./shell/watch.sh
 
 launch: check terraform-up deploy-files build
-	rm -rf tf.env
 
 
 
