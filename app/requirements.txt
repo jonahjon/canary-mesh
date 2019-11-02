@@ -1,5 +1,5 @@
 Flask==1.1.1
-requests==2.14.2
+requests==2.20.0
 psutil==5.4.0
 aws-xray-sdk==2.4.2
 flask-restful==0.3.7
